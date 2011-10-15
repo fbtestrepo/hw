@@ -1,0 +1,103 @@
+- member name, job
+- A assistant duty officer, C commercial demo pilot, D duty officer,
+- I instructor, T towpilot, S service member
+Grace Alexander 	
+Spencer Annear 	I
+Michael Ash 	D
+Wanda June Atwell-Park 	
+Frank Banas 	D
+Jake Barber 	
+Piet Barber 	I
+Craig Belon 	
+Craig Bendorf 	TC
+Zachary Bendorf 	
+Ernie C. Benner 	A
+Ernie P. Benner 	A
+Thomas Bishop 	
+Michael Bishton 	
+Alexandra Burgard 	
+Quinn Burgard 	
+Stephen Burgard 	
+William Burner 	T
+Tommy Childress 	A
+Michael Christensen 	A
+David Collier 	D
+Seth Conner 	
+Robert Creedon 	D
+David Dawood 	IT
+Rufus Decker 	AC
+Neal Drobenare 	
+Sobieslaw Dziadek 	D
+Kenneth Ekman 	DAC
+Gregory Ellis 	D
+Daniel Ernst 	A
+Carlos Ferreira 	A
+Edward Finn 	
+Deborah Flynn 	
+Thomas Flynn 	A
+Thomas Gainer 	A
+Jim Garrison 	DC
+Martin Gomez 	TC
+Bob Gould 	D
+Scott Graham 	IT
+Craig Hageman 	
+Michael Hatfield 	D
+Ryan Hatfield 	
+George Hazelrigg Jr.	IT
+George Hazelrigg III	
+Douglas Hiranaka 	DA
+Robb Hohmann 	A
+Marvin Holland 	
+Phil Jordan 	
+Jonathan Kans 	D
+Jim Kellett 	ID
+Vern Kline 	D
+Joe Lingevitch 	D
+Eric Litt 	TC
+Maria Luengo 	A
+Chris Martzloff 	D
+Jim McCulley 	TC
+Hugh McElrath 	TD
+Pete McShea 	
+Jeffrey Mitchell 	T
+Shane Neitzey 	IT
+Charles Norman 	I
+John Noss 	IT
+Bryan Otis 	
+Dick Otis 	IT
+Thomas Park 	
+Joe Parrish 	IT
+Jim Percival 	
+Michael Peterson 	D
+Paul Pruitt 	A
+Joe Rees 	D
+Steve Rockwood 	D
+Craig Rodarmel 	D
+Gordon Roesler 	D
+Christopher Roskind 	
+Trevor Roskind 	
+Bob Sallada 	I
+Paul Seketa 	IT
+Ben Smith 	
+Matthew Smith 	
+Patrick Smith 	
+Rick Smith 	
+Timmy Smith 	
+Bruce Spinney 	D
+James Stevens 	
+Ertan Tete 	DA
+Terrance Tripp 	A
+Carlos Troncoso 	A
+Bill Vickland 	TC
+Steve Wallace 	TC
+Hughes Webb 	
+Steve Wegner 	D
+Lily Weill 	
+John Westenhoff 	
+Curtis Wheeler 	IT
+Fred Winter 	C
+Bill Woodard 	A
+Karin Ulrike Wuestner 	
+Christopher Zaboji 	A
+Steven Zaboji 	A
+Bruce Zivic 	A

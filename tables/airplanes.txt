@@ -1,0 +1,2 @@
+- airplane name, registration, rental per minute, rental per flight, number of seats, max time charged per day, fly for free owners
+Husky	N6085S	2.00		2

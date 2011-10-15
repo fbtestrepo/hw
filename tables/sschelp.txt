@@ -1,0 +1,149 @@
+QUICK START
+
+Double click on the "SSC Logsheet" shortcut on the Windows desktop to launch the application. The program window has five folder tabs, and each tab has a second row of smaller subtabs. Flight information is entered in the Operations tab, Glider Flights subtab. Payments are recorded in the Finances tab, Payments subtab. All names (e.g., pilot, instructor, tow pilot) are chosen from popup lists to avoid typographical errors. (The previous pilot, instructor, and tow pilot can be set by menu choices, most conveniently by using the control key shortcuts.) New names (e.g., introductory members) are entered in the Members tab subpages and then get added at the bottom of the popup lists.
+
+In the Operations/Glider Flights page, click on the first row of the spreadsheet-like table to prepare for the first flight. The controls below the table apply to whatever row is currently selected. Using the controls, enter the name of the pilot or student, instructor, tow pilot, glider, class of flight, tow plane (if using more than one), and intended release altitude. Some of this information appears in the table as soon as it is entered. At takeoff press the Takeoff button, and upon landing press the Landing button. (You can also type Control-T and Control-L, shortcuts from the Flight menu.) These fill in the takeoff and landing times without your having to type them. (The program gets the time from the computer.) Make sure you have clicked on the desired row in the table before changing any controls.
+
+When a person is ready to pay for the day, select the Finances/Payments page. The current total charges for each person are automatically recalculated and listed in a table at the top of the page. Click on the payer's name. Controls at the bottom of the page allow you to indicate how much the person is paying. Typing Control-Y, Control-J or Control-A (shortcuts from the Payment menu) let you select payment in full by check, cash, or prepaid account without having to type the amounts.
+
+Every so often during the day, choose Save to Hard Disk from the File menu (or type Control-S) to save the current data so it won't be lost in case of a power failure. At the end of the day, enter the tow plane information in the Shutdown tab, and then choose File->Save to Flash. The name of the file for January 15, 2010, for example, would be 01152010.txt. (The program gets the date from the computer.) Remove the flash drive and e-mail the saved file to the treasurer.
+
+
+INTRODUCTION
+
+The logsheet window is organized into five folder tabs, each of which is subdivided with smaller tabs. The main tabs are:
+
+ STARTUP, MEMBERS, OPERATIONS, FINANCES, SHUTDOWN
+
+Most of the time will be spent in Operations, where flight information is entered. Finances allows payments to be recorded and miscellaneous purchases (e.g., introductory member fee, book sales) to be charged. Members allows introductory members to be added to the popup lists used in the Operations and Finances sections.
+
+The File menu has items for Save to Hard Disk and Save to Flash. The former should be used from time to time during the day, to protect against power failures. The latter automatically saves to the removable flash drive for e-mailing to the treasurer. There are also Flight and Payment menus that are enabled when you are in the appropriate folder tab. They make it easy to select a glider, record takeoff and landing time and release height, and record payment by check or cash.
+
+Several pages have a table at the top of the page and controls at the bottom. A particular row in the table is selected either by clicking with the mouse or by pressing the up or down arrow keys. The control values reflect the current settings for the selected row, and changing a control changes the value for that row. For the flights and miscellaneous charges pages, changing any control when the last row is selected will cause a new empty row to be appended at the end of the list. Thus, any number of flights or charges can be entered.
+
+In the detailed instructions that appear below, each section begins with a list of the small folder tabs that subdivide that group.
+
+
+STARTUP TAB
+
+ Staff & Settings, Potomac TRACON, Program Help
+
+In Staff & Settings, select the duty officer, assistant, instructor, and tow pilot, and set the primary tow plane to be used for the day. The date should already be set to the current date when the program is started. You can also choose to have the log file automatically saved to the disk after changes are made.
+
+In Potomac TRACON, set the popups with the local start and stop times and maximum altitude. Times will be converted from local (EST or EDT) time to UTC (universal coordinated time, or Zulu) used for communication with approach control. After setting all popups, the text to read to the Potomac Approach Control officer gives the correct UTC time.
+
+Program Help displays this help document.
+
+
+MEMBERS TAB
+
+ Current, Intro, Special, Full, Guest, Payer, Staff
+
+Current displays the currently active introductory members.
+
+Intro has radio buttons that let you select a particular kind of introductory member. Choices include someone presenting a FAST coupon, a current SSA member, and the ability to extend the period of an existing introductory member. Depending upon which radio button is chosen, check boxes may appear to let you charge the membership fee and for the membership packet, or a popup is displayed to indicate the number of days to extend an existing membership. A FAST (Fly A Sailplane Today) voucher covers the cost of an introductory membership. A newly-added name will appear in the popup lists for flights and payments.
+
+Special has radio buttons that let you choose between visiting, affiliated, and transient members. Check boxes allow you to override payment of regular fees, if necessary.
+
+Full lets you add the name of a new full or student member. There are controls for charging the $250 first year initiation fee, charging a prorated fraction of the $300 annual dues, and charging annual SSA dues. Student membership is a special category that does not pay the membership fee, and student members must be approved by the Board of Directors.
+
+Guest allows you to add the name of a guest of a member. The guest can fly without having to pay a introductory membership fee, but only when the sponsoring member is at the field.
+
+Payer lets you add a name to the list of payers for someone who wants to purchase a book, or pay for another person's flight, without becoming a introductory member and flying. When you switch to the appropriate page the new name will be available.
+
+Staff lets you update the popups for entering duty officer, assistant, instructor, and tow pilot. This is useful when operating at another airport or arranging a tow plane when ours is undergoing its annual inspection and maintenance.
+
+
+OPERATIONS TAB
+
+ Glider Flights, Airplane Flights, Pilot Summary, Instructor Summary, Tow Queue
+
+Glider Flights is the page where glider flight operations are recorded, and the one that will be selected most of the time. The top of the page has a table that displays the name of the pilot or student, the glider, takeoff and landing times, flight time, release altitude, and the rental cost, tow cost, and total cost for the flight. When a given row is selected with the mouse or the up or down arrow keys, the controls at the bottom of the page apply to that row.
+
+You can set name, instructor, tow pilot, and glider from popup lists, set the release altitude from two popups (thousands and hundreds), and set the takeoff and landing times by pressing buttons. (This relies on the computer time being properly set.) There are also items in the Flight menu for marking takeoff and landing times, setting the most common release altitudes, and choosing a recent glider, pilot, insructor, or tow pilot. (It is even move convenient to use control-key shortcuts for these menu choices.) Controls are also present for entering an alternative payer and designating how the payment will be shared.
+
+As a convenience for the duty officers, the title of the logsheet window displays the number of gliders that are currently aloft. The current flight times of airborne gliders are displayed in light gray text in the table.
+
+Airplane Flights will be used for recording rental of the towplane for pilot practice.
+
+Pilot Summary presents flight times alphabetized by pilot.
+
+Instructor Summary presents flight times alphabetized by instructor.
+
+Tow Queue will be used for recording the tow request queue.
+
+
+FINANCES TAB
+
+ Payments, Fees, Charges, Adjustments, Expenses
+
+Payments shows a summarized list of names, charges, and payments, based on the current flight costs and miscellaneous purchases. Select a row in the table with the mouse or the up or down arrow keys. Controls at the bottom of the page let you enter check or cash payments, payment using a prepaid account, or payment by FAST voucher. Items in the Payment menu allow rapid selection of payment in full by check or cash, or from the prepaid account. In case of an overpayment, a button appears allowing the excess to be added to the prepaid account.
+
+Fees has a similar spreadsheet structure to record charging for introductory memberships, regular memberships, SSA dues, and aerial retrieval feesAdding an introductory member from the Members/Intro page automatically adds a charge for the introductory membership fee.
+
+Charges has a spreadsheet to record charging for book, video, clothing, membership packets, and other merchandise purchases. Adding an introductory member from the Members/Intro page automatically adds a charge for the introductory membership packet.
+
+Adjustments allows you to record the amount being paid for a previous bill or an amount to add to your prepaid account. These values are reflected in the totals in the Payments page.
+
+Expenses is a text box allowing you to indicate, for example, that a given person paid for gasoline for the tow car, and thus needs to be reimbursed by the treasurer. Do not try to adjust for expenses by attempting to reduce that person's flight charges. The Treasurer will issue a check after entering the value into the accounting program.
+
+
+SHUTDOWN TAB
+
+ Tow Plane Data, Contact Info, Awards, Comment, No Operations
+
+Tow Plane Data allows you to enter start and ending tach times and gasoline added for up to two tow planes. The program calculates the total tach times.
+
+Contact Info lists the names of introductory members added on the current date, and allows entry of full contact information, including home street address, telephone numbers, and e-mail address.
+
+Awards allows recording of badge flights or pilot license check rides.
+
+Comment allows entry of general comments for the treasurer.
+
+No Operations has a box to check if no flight operations occurred.
+
+
+SHORTCUT KEYS
+
+Many of the menu items can be activated by control-key accelerators. Hold down the Control key and tap the letter to choose the shortcut.
+
+Menu      Item                  Control Key
+
+File
+
+          Open                        O
+          Save to Hard Disk           S
+          Quit                        Q
+
+Edit
+
+          Cut                         X
+          Copy                        C
+          Paste                       V
+
+Flight 
+
+          Takeoff                     T
+          Landing                     L
+
+          Release 0                   0
+          Release 1000                1
+          Release 2000                2
+          Release 3000                3
+          Release 4000                4
+          Release + 500               5
+
+          Previous Glider             G
+
+          Previous Pilot Name         N
+          Previous Instructor         U
+          Previous Tow Pilot          W
+          Previous TowPlane           M
+          Previous Class              K
+
+Payment
+
+          Paid in Full by Check       Y
+          Paid in Full by Cash        J
+          Paid in Full from Account   A
+

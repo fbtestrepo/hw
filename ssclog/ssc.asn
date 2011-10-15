@@ -1,0 +1,528 @@
+--**********************************************************************
+--
+--  Skyline Soaring Club Logsheet Data Elements
+--  Version 8.3 - July 2011
+--
+--  Copyright (c) 2004-2011 Jonathan A. Kans. All rights reserved.
+--
+--**********************************************************************
+
+SSC-General DEFINITIONS ::=
+BEGIN
+
+-- tow release altitude is in feet AGL
+-- flight time and rental rates are in minutes
+-- airport altitude is in feet MSL
+
+-- MISCELLANEOUS SECTION --
+
+CalendarDate ::= SEQUENCE {
+    month INTEGER {
+        january (1) ,
+        february (2) ,
+        march (3) ,
+        april (4) ,
+        may (5) ,
+        june (6) ,
+        july (7) ,
+        august (8) ,
+        september (9) ,
+        october (10) ,
+        november (11) ,
+        december (12)
+    } ,
+    day INTEGER ,
+    year INTEGER ,
+    weekday INTEGER {
+        sunday (1) ,
+        monday (2) ,
+        tuesday (3) ,
+        wednesday (4) ,
+        thursday (5) ,
+        friday (6) ,
+        saturday (7)
+    } OPTIONAL
+}
+
+ClockTime ::= SEQUENCE {
+    hour INTEGER ,
+    minute INTEGER
+}
+
+FlightTime ::= SEQUENCE {
+    hours INTEGER ,
+    minutes INTEGER
+}
+
+DollarAmount ::= SEQUENCE {
+    dollars INTEGER ,
+    cents INTEGER
+}
+
+ReleaseHeight ::= INTEGER
+
+-- PEOPLE SECTION --
+
+PersonName ::= VisibleString
+
+FullName ::= SEQUENCE {
+    last-name VisibleString ,
+    first-name VisibleString ,
+    middle-initials VisibleString OPTIONAL ,
+    suffix VisibleString OPTIONAL
+}
+
+MemberType ::= INTEGER {
+    regular (1) ,
+    fast (2) , -- intro member using FAST voucher
+    intro (3) , -- must already be SSA member
+    visiting (4) ,
+    affiliated (5) ,
+    transient (6) ,
+    special (7) , -- obsolete, maps to transient
+    service (8) ,
+    guest (9) ,
+    payer (10) ,
+    other (11)
+}
+
+ClubJobs ::= SEQUENCE {
+    fly-glider BOOLEAN OPTIONAL ,
+    instructor BOOLEAN OPTIONAL ,
+    tow-pilot BOOLEAN OPTIONAL ,
+    demo-pilot BOOLEAN OPTIONAL ,
+    duty-officer BOOLEAN OPTIONAL ,
+    assistant-d-o BOOLEAN OPTIONAL ,
+    examiner BOOLEAN OPTIONAL ,
+    payer BOOLEAN OPTIONAL
+}
+
+MemberInfo ::= SEQUENCE {
+    name PersonName ,
+    type MemberType OPTIONAL ,
+    jobs ClubJobs OPTIONAL ,
+    expires CalendarDate OPTIONAL
+}
+
+MemberList ::= SET OF MemberInfo
+
+ContactInfo ::= SEQUENCE {
+    name PersonName ,
+    full-name FullName OPTIONAL ,
+    type MemberType OPTIONAL ,
+    jobs ClubJobs OPTIONAL ,
+    expires CalendarDate OPTIONAL ,
+    address VisibleString OPTIONAL ,
+    city VisibleString OPTIONAL ,
+    state VisibleString OPTIONAL ,
+    postal-code VisibleString OPTIONAL ,
+    country VisibleString OPTIONAL ,
+    home-phone VisibleString OPTIONAL ,
+    work-phone VisibleString OPTIONAL ,
+    cell-phone VisibleString OPTIONAL ,
+    e-mail VisibleString OPTIONAL ,
+    pilot-ratings VisibleString OPTIONAL ,
+    occupation VisibleString OPTIONAL ,
+    comment VisibleString OPTIONAL ,
+    ssa-number VisibleString OPTIONAL ,
+    ssa-expiration CalendarDate OPTIONAL ,
+    fast-voucher VisibleString OPTIONAL
+}
+
+ContactList ::= SET OF ContactInfo
+
+StaffData ::= SEQUENCE {
+    dutyofficer PersonName OPTIONAL ,
+    assistant PersonName OPTIONAL ,
+    timekeeper PersonName OPTIONAL ,
+    instructor PersonName OPTIONAL ,
+    towpilot PersonName OPTIONAL ,
+    am-towpilot PersonName OPTIONAL ,
+    pm-towpilot PersonName OPTIONAL ,
+    comment VisibleString OPTIONAL
+}
+
+-- AIRCRAFT SECTION --
+
+AirplaneName ::= VisibleString
+
+AirplaneInfo ::= SEQUENCE {
+    airplane AirplaneName ,
+    tail-number VisibleString OPTIONAL ,
+    cost-per-min DollarAmount OPTIONAL ,
+    cost-per-flight DollarAmount OPTIONAL ,
+    number-of-seats INTEGER OPTIONAL ,
+    max-rental-time FlightTime OPTIONAL ,
+    fly-for-free SET OF PersonName OPTIONAL
+}
+
+AirplaneTable ::= SET OF AirplaneInfo
+
+GliderName ::= VisibleString
+
+GliderInfo ::= SEQUENCE {
+    glider GliderName ,
+    tail-number VisibleString OPTIONAL ,
+    cost-per-min DollarAmount OPTIONAL ,
+    cost-per-flight DollarAmount OPTIONAL ,
+    number-of-seats INTEGER OPTIONAL ,
+    max-rental-time FlightTime OPTIONAL ,
+    fly-for-free SET OF PersonName OPTIONAL
+}
+
+GliderTable ::= SET OF GliderInfo
+
+TowPlaneName ::= VisibleString
+
+TowPlaneInfo ::= SEQUENCE {
+    towplane TowPlaneName ,
+    tail-number VisibleString OPTIONAL
+}
+
+TowPlaneTable ::= SET OF TowPlaneInfo
+
+TowRateItem ::= SEQUENCE {
+    altitude ReleaseHeight ,
+    cost-of-tow DollarAmount
+}
+
+TowRateTable ::= SET OF TowRateItem
+
+TowPlaneList ::= SEQUENCE {
+    towplane TowPlaneName ,
+    tail-number VisibleString OPTIONAL ,
+    rates TowRateTable
+}
+
+TowPlaneSet ::= SET OF TowPlaneList
+
+-- AIRPORT SECTION --
+
+AirportName ::= VisibleString
+
+AirportInfo ::= SEQUENCE {
+    airport AirportName ,
+    code VisibleString OPTIONAL ,
+    suffix VisibleString OPTIONAL ,
+    altitude INTEGER OPTIONAL
+}
+
+AirportList ::= SET OF AirportInfo
+
+-- FLIGHT SECTION --
+
+GliderFlight ::= SEQUENCE {
+    flight-number INTEGER OPTIONAL ,
+    name PersonName ,
+    type MemberType OPTIONAL ,
+    alt-payer PersonName OPTIONAL ,
+    split-payment INTEGER {
+        all (1) ,
+        half (2) ,
+        rental (3) ,
+        tow (4)
+    } OPTIONAL ,
+    passenger PersonName OPTIONAL ,
+    glider GliderName ,
+    category INTEGER {
+        regular (1) ,
+        instruction (2) ,
+        demo (3) ,
+        examination (4) ,
+        test-flight (5) ,
+        free-demo (6) ,
+        fast-lesson (7)
+    } OPTIONAL ,
+    airport AirportName OPTIONAL ,
+    towplane TowPlaneName OPTIONAL ,
+    instructor PersonName OPTIONAL ,
+    towpilot PersonName OPTIONAL ,
+    takeoff ClockTime OPTIONAL ,
+    landing ClockTime OPTIONAL ,
+    exception INTEGER {
+      landed-out (1) ,
+      aborted-takeoff (2) ,
+      simulated-ptt (3) ,
+      actual-ptt (4) ,
+      other (5)
+    } OPTIONAL ,
+    landed-out BOOLEAN OPTIONAL , -- obsolete, maps to exception.landed-out
+    flight-time FlightTime OPTIONAL ,
+    release-altitude ReleaseHeight DEFAULT -1 ,
+    flight-cost DollarAmount OPTIONAL ,
+    tow-cost DollarAmount OPTIONAL ,
+    total-cost DollarAmount OPTIONAL ,
+    comment VisibleString OPTIONAL
+}
+
+GliderFlightList ::= SEQUENCE OF GliderFlight
+
+FlightList ::= SEQUENCE OF GliderFlight -- obsolete, maps to GliderFlightList
+
+AirplaneFlight ::= SEQUENCE {
+    flight-number INTEGER OPTIONAL ,
+    name PersonName ,
+    type MemberType OPTIONAL ,
+    alt-payer PersonName OPTIONAL ,
+    split-payment INTEGER {
+        all (1) ,
+        half (2)
+    } OPTIONAL ,
+    passenger PersonName OPTIONAL ,
+    airplane AirplaneName ,
+    category INTEGER {
+        regular (1) ,
+        instruction (2) ,
+        demo (3) ,
+        examination (4) ,
+        test-flight (5) ,
+        free-demo (6)
+    } OPTIONAL ,
+    airport AirportName OPTIONAL ,
+    instructor PersonName OPTIONAL ,
+    takeoff ClockTime OPTIONAL ,
+    landing ClockTime OPTIONAL ,
+    exception INTEGER {
+      landed-out (1) ,
+      aborted-takeoff (2) ,
+      loss-of-power (3) ,
+      other (4)
+    } OPTIONAL ,
+    flight-time FlightTime OPTIONAL ,
+    flight-cost DollarAmount OPTIONAL ,
+    comment VisibleString OPTIONAL
+}
+
+AirplaneFlightList ::= SEQUENCE OF AirplaneFlight
+
+TowRequest ::= SEQUENCE {
+    name PersonName ,
+    request-time ClockTime OPTIONAL ,
+    glider GliderName OPTIONAL ,
+    towplane TowPlaneName OPTIONAL ,
+    instructor PersonName OPTIONAL ,
+    result INTEGER {
+      completed (1) ,
+      withdrew (2)
+    } OPTIONAL
+}
+
+TowQueue ::= SEQUENCE OF TowRequest
+
+AwardData ::= SEQUENCE {
+    name PersonName ,
+    type MemberType OPTIONAL ,
+    reason INTEGER {
+        a-badge (1) ,
+        b-badge (2) ,
+        c-badge (3) ,
+        bronze-badge (4) ,
+        silver-altitude (5) ,
+        silver-duration (6) ,
+        silver-distance (7) ,
+        gold-altitude (8) ,
+        gold-distance (9) ,
+        diamond-altitude (10) ,
+        diamond-goal (11) ,
+        diamond-distance (12) ,
+        fai-1000k (13) ,
+        fai-2000k (14) ,
+        ppl-g (15) ,
+        cpl-g (16) ,
+        cfi-g (17) ,
+        other (18)
+    } ,
+    comment VisibleString OPTIONAL
+}
+
+AwardList ::= SET OF AwardData
+
+TowPlaneData ::= SEQUENCE {
+    towplane TowPlaneName OPTIONAL ,
+    start-tach VisibleString OPTIONAL ,
+    end-tach VisibleString OPTIONAL ,
+    tach-time VisibleString OPTIONAL ,
+    gas-added VisibleString OPTIONAL ,
+    comment VisibleString OPTIONAL
+}
+
+TowPlaneDataList ::= SET OF TowPlaneData
+
+-- FINANCIAL SECTION --
+
+MerchandiseInfo ::= SEQUENCE {
+    item VisibleString ,
+    category INTEGER {
+        voucher (1) ,
+        book (2) ,
+        video (3) ,
+        clothing (4) ,
+        packet (5) ,
+        merchandise (6) ,
+        other (7)
+    } OPTIONAL ,
+    cost DollarAmount OPTIONAL
+}
+
+MerchandiseList ::= SET OF MerchandiseInfo
+
+FeeData ::= SEQUENCE {
+    name PersonName ,
+    type MemberType OPTIONAL ,
+    alt-payer PersonName OPTIONAL ,
+    amount DollarAmount ,
+    reason INTEGER {
+        regular-membership (1) ,
+        ssc-prorated-dues (2) ,
+        ssa-dues (3) ,
+        intro-membership (4) ,
+        visiting-membership (5) ,
+        affiliated-membership (6) ,
+        transient-membership (7) ,
+        aerial-retrieve (8) ,
+        other (9)
+    } ,
+    item VisibleString OPTIONAL ,
+    comment VisibleString OPTIONAL
+}
+
+FeeList ::= SET OF FeeData
+
+ChargeData ::= SEQUENCE {
+    name PersonName ,
+    type MemberType OPTIONAL ,
+    alt-payer PersonName OPTIONAL ,
+    amount DollarAmount ,
+    reason INTEGER {
+        voucher-sale (1) ,
+        book-sale (2) ,
+        video-sale (3) ,
+        clothing-sale (4) ,
+        packet-sale (5) ,
+        merchandise-sale (6) ,
+        other (7)
+    } ,
+    item VisibleString OPTIONAL ,
+    comment VisibleString OPTIONAL
+}
+
+ChargeList ::= SET OF ChargeData
+
+MiscCharge ::= SEQUENCE {
+    name PersonName ,
+    type MemberType OPTIONAL ,
+    alt-payer PersonName OPTIONAL ,
+    amount DollarAmount ,
+    reason INTEGER {
+        regular-membership (1) ,
+        ssc-prorated-dues (2) ,
+        ssa-dues (3) ,
+        intro-membership (4) ,
+        visiting-membership (5) ,
+        affiliated-membership (6) ,
+        transient-membership (7) ,
+        aerial-retrieve (8) ,
+        book-sale (9) ,
+        video-sale (10) ,
+        clothing-sale (11) ,
+        packet-sale (12) ,
+        merchandise-sale (13) ,
+        temp-membership (14) , -- obsolete, maps to intro
+        special-membership (15) , -- obsolete, maps to transient
+        other (16)
+    } ,
+    item VisibleString OPTIONAL ,
+    comment VisibleString OPTIONAL
+}
+
+MiscList ::= SET OF MiscCharge -- obsolete, maps to FeeList and ChargeList
+
+AdjustData ::= SEQUENCE {
+    name PersonName ,
+    type MemberType OPTIONAL ,
+    alt-payer PersonName OPTIONAL ,
+    amount DollarAmount ,
+    reason INTEGER {
+        pay-for-previous (1) ,
+        pay-in-advance (2) ,
+        other (3)
+    } ,
+    comment VisibleString OPTIONAL
+}
+
+AdjustmentList ::= SET OF AdjustData
+
+PaymentInfo ::= SEQUENCE {
+    payer PersonName ,
+    type MemberType OPTIONAL ,
+    charges DollarAmount ,
+    check-payment DollarAmount OPTIONAL ,
+    cash-payment DollarAmount OPTIONAL ,
+    credit-payment DollarAmount OPTIONAL ,
+    credit-surcharge DollarAmount OPTIONAL , -- dynamically calculated
+    account-payment DollarAmount OPTIONAL ,
+    voucher-payment DollarAmount OPTIONAL ,
+    voucher-serial VisibleString OPTIONAL ,
+    comment VisibleString OPTIONAL
+}
+
+PaymentList ::= SET OF PaymentInfo
+
+MiscRate ::= SEQUENCE {
+    year INTEGER OPTIONAL ,
+    initiation-fee DollarAmount OPTIONAL ,
+    monthly-dues DollarAmount OPTIONAL ,
+    ssa-regular DollarAmount OPTIONAL ,
+    ssa-family DollarAmount OPTIONAL ,
+    intro-memb-days INTEGER OPTIONAL , -- applies to fast and intro
+    fast-fee DollarAmount OPTIONAL ,
+    fast-extra DollarAmount OPTIONAL ,
+    fast-list VisibleString OPTIONAL ,
+    intro-fee DollarAmount OPTIONAL ,
+    intro-extra DollarAmount OPTIONAL ,
+    intro-list VisibleString OPTIONAL ,
+    special-memb-days INTEGER OPTIONAL , -- applies to visiting and affiliated
+    visiting-fee DollarAmount OPTIONAL ,
+    affiliated-fee DollarAmount OPTIONAL ,
+    transient-memb-days INTEGER OPTIONAL ,
+    transient-fee DollarAmount OPTIONAL ,
+    retrieve-cost-per-min DollarAmount OPTIONAL ,
+    minimum-retrieve-cost DollarAmount OPTIONAL ,
+    credit-card-percent DollarAmount OPTIONAL , -- interpret as percent for paying by credit card
+    credit-card-flat DollarAmount OPTIONAL -- fixed fee for paying by credit card
+}
+
+-- LOGSHEET SECTION --
+
+LogSheet ::= SEQUENCE {
+    date CalendarDate ,
+    version VisibleString OPTIONAL ,
+    original-version VisibleString OPTIONAL ,
+    club VisibleString OPTIONAL ,
+    airport AirportName OPTIONAL ,
+    towplane TowPlaneName OPTIONAL ,
+    no-operations BOOLEAN OPTIONAL ,
+    staff StaffData OPTIONAL ,
+    flights FlightList OPTIONAL , -- obsolete, maps to glider-flights
+    glider-flights GliderFlightList OPTIONAL ,
+    airplane-flights AirplaneFlightList OPTIONAL ,
+    tow-queue TowQueue OPTIONAL ,
+    other-charges MiscList OPTIONAL , -- obsolete, maps to fees and charges
+    fees FeeList OPTIONAL ,
+    charges ChargeList OPTIONAL ,
+    adjustments AdjustmentList OPTIONAL ,
+    payments PaymentList OPTIONAL ,
+    awards AwardList OPTIONAL ,
+    towplane-data TowPlaneDataList OPTIONAL ,
+    new-contacts ContactList OPTIONAL ,
+    new-gliders GliderTable OPTIONAL ,
+    new-staff MemberList OPTIONAL ,
+    expenses VisibleString OPTIONAL ,
+    comment VisibleString OPTIONAL ,
+    passed-validation BOOLEAN OPTIONAL
+}
+
+LogSheetSet ::= SET OF LogSheet
+
+END
+

@@ -39,10 +39,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#if 0 /* ppruitt: disable to avoid dependency on windows runtime DLL */
 #ifdef NCBI_OS_MSWIN
 #  define fseek  _fseeki64
 #endif /*NCBI_OS_MSWIN*/
-
+#endif /* ppruitt */
 
 /***********************************************************************
  *  INTERNAL -- Auxiliary types and static functions

@@ -1,17 +1,21 @@
 #!/bin/sh
-mkdir ~/Desktop/build
-mkdir ~/Desktop/build/connect
-cp ~/ncbi/asnlib/*.[ch] ~/Desktop/build
-cp ~/ncbi/connect/*.[ch] ~/Desktop/build
-cp ~/ncbi/corelib/*.[ch] ~/Desktop/build
-cp ~/ncbi/corelib/ncbilcl.* ~/Desktop/build
-cp ~/ncbi/vibrant/*.[ch] ~/Desktop/build
-cp ~/ncbi/connect/*.h ~/Desktop/build/connect
-cp ~/ssc/ssclog/*.[ch] ~/Desktop/build
-cp ~/ssc/include/*.h ~/Desktop/build
-cp -r ~/ssc/tables ~/Desktop/build
-cp ~/ssc/scripts/ssclogo.ico ~/Desktop/build
-cp ~/ssc/scripts/ssclogo.rc ~/Desktop/build
-cp ~/ssc/scripts/makemingwssc ~/Desktop/build/makefile
-cd ~/Desktop/build
-/usr/local/i386-mingw32-4.3.0/bin/i386-mingw32-windres -i ssclogo.rc -o ssclogo.o
+
+WINDRES=/usr/local/i386-mingw32-4.3.0/bin/i386-mingw32-windres
+BUILD_DIR=./build_win
+SRC_DIR=..
+
+mkdir -p ${BUILD_DIR}/connect
+cp ${SRC_DIR}/asnlib/*.[ch] ${BUILD_DIR}
+cp ${SRC_DIR}/connect/*.[ch] ${BUILD_DIR}
+cp ${SRC_DIR}/corelib/*.[ch] ${BUILD_DIR}
+cp ${SRC_DIR}/corelib/ncbilcl.* ${BUILD_DIR}
+cp ${SRC_DIR}/vibrant/*.[ch] ${BUILD_DIR}
+cp ${SRC_DIR}/connect/*.h ${BUILD_DIR}/connect
+cp ${SRC_DIR}/ssclog/*.[ch] ${BUILD_DIR}
+cp ${SRC_DIR}/include/*.h ${BUILD_DIR}
+cp -r ${SRC_DIR}/tables ${BUILD_DIR}
+cp ${SRC_DIR}/scripts/ssclogo.ico ${BUILD_DIR}
+cp ${SRC_DIR}/scripts/ssclogo.rc ${BUILD_DIR}
+cp ${SRC_DIR}/scripts/makemingwssc ${BUILD_DIR}/makefile
+cd ${BUILD_DIR}
+${WINDRES} -i ssclogo.rc -o ssclogo.o

@@ -780,7 +780,14 @@
 			isa = PBXProject;
 			buildConfigurationList = C0E91AC908A95435008D54AB /* Build configuration list for PBXProject "ssc" */;
 			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
 			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+			);
 			mainGroup = 20286C29FDCF999611CA2CEA /* ssc */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -1021,6 +1028,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				PREBINDING = NO;
 				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = YES;
+				SDKROOT = macosx10.5;
 			};
 			name = Debug;
 		};
@@ -1051,6 +1059,7 @@
 				);
 				PREBINDING = NO;
 				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = YES;
+				SDKROOT = macosx10.5;
 			};
 			name = Release;
 		};

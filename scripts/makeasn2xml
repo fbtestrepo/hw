@@ -12,14 +12,15 @@ SRC=binary.c drwnflpt.c drwnfspc.c drwnmfls.c gifgen.c matrix.c \
 	ncbi_socket.c ncbi_types.c ncbi_util.c urlquery.c \
 	asnbufo.c asndebin.c asnenbin.c asngen.c asngenob.c asnio.c \
 	asnlex.c asnlext.c asnout.c asnprint.c asntypes.c \
-	objssc.c sscconv.c sscasn2xml.c
+	objssc.c sscconv.c sscasn2xml.c \
+        ncbiargs.c ncbimain.c
 
 OBJ=$(SRC:.c=.o)
 EXE=sscasn2xml
 
 CC=gcc -pipe
 CFLAGS=-c -O3 -I .
-LDFLAGS=-O3
+LDFLAGS=-O3 -lpthread -lm
 RM=rm
 
 .c.o :

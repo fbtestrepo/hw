@@ -1,4 +1,4 @@
-2023	- year (program/data table version)
+2025	- year (program/data table version)
 250.00	- initiation fee (first half)
 28.00	- monthly dues (prorate)
 64.00	- SSA regular dues
